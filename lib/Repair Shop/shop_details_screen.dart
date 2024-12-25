@@ -31,7 +31,7 @@ class ShopDetails extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(12.0), // Reduced padding
               child: Card(
-                margin: EdgeInsets.all(16),
+                margin: const EdgeInsets.all(16),
                 elevation: 4,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(4.0), // Reduced radius
@@ -56,7 +56,8 @@ class ShopDetails extends StatelessWidget {
                 children: [
                   // Details Card
                   Card(
-                    margin: const EdgeInsets.symmetric(horizontal: 15), // Reduced margin
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 15), // Reduced margin
                     elevation: 4,
                     child: Padding(
                       padding: const EdgeInsets.all(25.0), // Reduced padding
@@ -84,7 +85,8 @@ class ShopDetails extends StatelessWidget {
                           ...List.generate(
                             3,
                             (index) => Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 2.0), // Reduced padding
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 2.0), // Reduced padding
                               child: Text(
                                 '- Review $index: Great service!',
                                 style: TextStyle(
@@ -122,15 +124,23 @@ class ShopDetails extends StatelessWidget {
                                 children: [
                                   const Text(
                                     'Price Range: ₱500 - ₱1,500',
-                                    style: TextStyle(fontSize: 14, color: Colors.white), // Reduced font size
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color:
+                                            Colors.white), // Reduced font size
                                   ),
                                   IconButton(
                                     onPressed: () {
-                                      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
-                                        return MessageConvoScreen();
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) {
+                                        return const MessageConvoScreen();
                                       }));
                                     },
-                                    icon: const Icon(Icons.message, size: 24, color: Colors.white), // Reduced icon size
+                                    icon: const Icon(Icons.message,
+                                        size: 24,
+                                        color:
+                                            Colors.white), // Reduced icon size
                                   ),
                                 ],
                               ),
@@ -150,22 +160,23 @@ class ShopDetails extends StatelessWidget {
                                   },
                                 ));
                               },
-  
-
                               style: ElevatedButton.styleFrom(
                                 padding: EdgeInsets.symmetric(
-                                  horizontal: screenWidth * 0.06, // Reduced padding
-                                  vertical: screenHeight * 0.015, // Reduced padding
+                                  horizontal:
+                                      screenWidth * 0.06, // Reduced padding
+                                  vertical:
+                                      screenHeight * 0.015, // Reduced padding
                                 ),
                                 backgroundColor: Colors.white,
                               ),
                               child: const Text(
                                 'Book Now',
-                                style: TextStyle(fontSize: 14), // Reduced font size
+                                style: TextStyle(
+                                    fontSize: 14), // Reduced font size
                               ),
                             ),
                             ElevatedButton(
-                                 onPressed: () {
+                              onPressed: () {
                                 Navigator.of(context).push(MaterialPageRoute(
                                   builder: (BuildContext context) {
                                     return const CarRepairAppointmentScreen(); // Ensure the widget is properly instantiated
@@ -174,14 +185,17 @@ class ShopDetails extends StatelessWidget {
                               },
                               style: ElevatedButton.styleFrom(
                                 padding: EdgeInsets.symmetric(
-                                  horizontal: screenWidth * 0.06, // Reduced padding
-                                  vertical: screenHeight * 0.015, // Reduced padding
+                                  horizontal:
+                                      screenWidth * 0.06, // Reduced padding
+                                  vertical:
+                                      screenHeight * 0.015, // Reduced padding
                                 ),
                                 backgroundColor: Colors.white,
                               ),
                               child: const Text(
                                 'Set Appointment',
-                                style: TextStyle(fontSize: 14), // Reduced font size
+                                style: TextStyle(
+                                    fontSize: 14), // Reduced font size
                               ),
                             ),
                           ],

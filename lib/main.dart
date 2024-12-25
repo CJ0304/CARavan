@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:user1_bookingrepair/HomePage/home_page_screen.dart';
+
+import 'login/login_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MaterialApp(
-    home: HomePageScreen(),
+    home: LoginScreen(),
     debugShowCheckedModeBanner: false,
   ));
 }

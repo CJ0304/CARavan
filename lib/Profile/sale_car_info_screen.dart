@@ -5,7 +5,7 @@ import 'package:user1_bookingrepair/Profile/sale_care_info_next_screen.dart';
 import 'package:image_picker/image_picker.dart'; // Add image picker package
 
 class SellCarScreen extends StatefulWidget {
-  const SellCarScreen({Key? key}) : super(key: key);
+  const SellCarScreen({super.key});
 
   @override
   _SellCarScreenState createState() => _SellCarScreenState();
@@ -17,7 +17,7 @@ class _SellCarScreenState extends State<SellCarScreen> {
   final _carYearController = TextEditingController();
   final _carMileageController = TextEditingController();
   final _carPriceController = TextEditingController();
-  String _imagePath = ''; // For image path, initially empty
+  final String _imagePath = ''; // For image path, initially empty
   bool isFormValid = false; // To track form validation
 
   // Function to navigate to the next screen
@@ -42,11 +42,11 @@ class _SellCarScreenState extends State<SellCarScreen> {
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please fill in all fields and upload an image!')),
+        const SnackBar(
+            content: Text('Please fill in all fields and upload an image!')),
       );
     }
   }
-
 
   // Function to validate form fields
   void _validateForm() {
@@ -102,10 +102,11 @@ class _SellCarScreenState extends State<SellCarScreen> {
               TextField(
                 controller: _carMakeController,
                 onChanged: (value) => _validateForm(),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Car Make',
                   border: OutlineInputBorder(),
-                  suffixIcon: Icon(Icons.directions_car), // Icon for added interactivity
+                  suffixIcon: Icon(
+                      Icons.directions_car), // Icon for added interactivity
                 ),
               ),
               const SizedBox(height: 16),
@@ -114,7 +115,7 @@ class _SellCarScreenState extends State<SellCarScreen> {
               TextField(
                 controller: _carModelController,
                 onChanged: (value) => _validateForm(),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Car Model',
                   border: OutlineInputBorder(),
                   suffixIcon: Icon(Icons.model_training),
@@ -126,7 +127,7 @@ class _SellCarScreenState extends State<SellCarScreen> {
               TextField(
                 controller: _carYearController,
                 onChanged: (value) => _validateForm(),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Car Year',
                   border: OutlineInputBorder(),
                   suffixIcon: Icon(Icons.calendar_today),
@@ -138,7 +139,7 @@ class _SellCarScreenState extends State<SellCarScreen> {
               TextField(
                 controller: _carMileageController,
                 onChanged: (value) => _validateForm(),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Car Mileage (in miles)',
                   border: OutlineInputBorder(),
                   suffixIcon: Icon(Icons.speed),
@@ -150,7 +151,7 @@ class _SellCarScreenState extends State<SellCarScreen> {
               TextField(
                 controller: _carPriceController,
                 onChanged: (value) => _validateForm(),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Car Price',
                   border: OutlineInputBorder(),
                   suffixIcon: Icon(Icons.attach_money),
@@ -162,7 +163,9 @@ class _SellCarScreenState extends State<SellCarScreen> {
               ElevatedButton(
                 onPressed: isFormValid ? _navigateToNextScreen : null,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: isFormValid ? const Color(0xFF28435A) : Colors.grey, // Disabled state
+                  backgroundColor: isFormValid
+                      ? const Color(0xFF28435A)
+                      : Colors.grey, // Disabled state
                 ),
                 child: const Text("Save Information"),
               ),

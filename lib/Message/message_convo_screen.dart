@@ -39,9 +39,11 @@ class _MessageConvoScreenState extends State<MessageConvoScreen> {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Align(
-                    alignment: Alignment.centerRight, // Align all messages to the right (for your POV)
+                    alignment: Alignment
+                        .centerRight, // Align all messages to the right (for your POV)
                     child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 15),
                       decoration: BoxDecoration(
                         color: const Color(0xFF28435A),
                         borderRadius: BorderRadius.circular(12),
@@ -70,7 +72,7 @@ class _MessageConvoScreenState extends State<MessageConvoScreen> {
                       hintText: 'Type a message...',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: const BorderSide(color: Colors.grey),
                       ),
                     ),
                   ),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:user1_bookingrepair/Profile/sale_care_verify.dart';
 
@@ -11,14 +10,14 @@ class CarSaleInfoScreen extends StatelessWidget {
   final String imagePath;
 
   const CarSaleInfoScreen({
-    Key? key,
+    super.key,
     required this.carMake,
     required this.carModel,
     required this.carYear,
     required this.carMileage,
     required this.carPrice,
     required this.imagePath,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,8 @@ class CarSaleInfoScreen extends StatelessWidget {
               // Navigate to the next screen (CarPapersUploadScreen)
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const CarPapersUploadScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const CarPapersUploadScreen()),
               );
             },
             child: const Text(
@@ -105,7 +105,7 @@ class CarSaleInfoScreen extends StatelessWidget {
       controller: TextEditingController(text: value), // Set initial value
       decoration: InputDecoration(
         labelText: label,
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
       ),
       enabled: false, // Make it read-only
     );

@@ -37,7 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text("Add Car"),
-          content: const Text("Would you like to add a car for sale or for rent?"),
+          content:
+              const Text("Would you like to add a car for sale or for rent?"),
           actions: <Widget>[
             ElevatedButton(
               onPressed: () {
@@ -45,7 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 // Navigate to the SellCarScreen when "For Sale" is pressed
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const SellCarScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => const SellCarScreen()),
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -54,7 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
               ),
               child: const Text("For Sale"),
             ),
@@ -64,7 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 // Navigate to the RentCarScreen when "For Rent" is pressed
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const RentCarScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => const RentCarScreen()),
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -73,7 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
               ),
               child: const Text("For Rent"),
             ),
@@ -119,8 +124,9 @@ class _MyHomePageState extends State<MyHomePage> {
             top: 0,
             left: 0,
             right: 0,
-            child: Container(
-              height: screenHeight * 0.2, // Set responsive height based on screen size
+            child: SizedBox(
+              height: screenHeight *
+                  0.2, // Set responsive height based on screen size
               child: Image.network(
                 'https://iriga.gov.ph/wp-content/uploads/2022/11/placeholder.png', // Add your image URL
                 fit: BoxFit.cover,
@@ -130,11 +136,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
           // Profile Picture
           Positioned(
-            top: screenHeight * 0.1, // Adjust top positioning based on screen size
+            top: screenHeight *
+                0.1, // Adjust top positioning based on screen size
             left: 30,
             child: Container(
               width: screenWidth * 0.3, // Make width responsive
-              height: screenWidth * 0.3, // Make height responsive (circle shape)
+              height:
+                  screenWidth * 0.3, // Make height responsive (circle shape)
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.grey.shade300, // Profile picture background color
@@ -152,34 +160,34 @@ class _MyHomePageState extends State<MyHomePage> {
           Positioned(
             top: screenHeight * 0.25, // Adjust position based on screen size
             left: 40,
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Mitchell Smith', // Example name
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 5),
-                const Text(
+                SizedBox(height: 5),
+                Text(
                   'Car Enthusiast and Seller',
                   style: TextStyle(fontSize: 14, color: Colors.grey),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: 10),
                 Row(
                   children: [
-                    const Icon(Icons.star, color: Colors.yellow, size: 20),
-                    const SizedBox(width: 5),
-                    const Text(
+                    Icon(Icons.star, color: Colors.yellow, size: 20),
+                    SizedBox(width: 5),
+                    Text(
                       '4.5/5',
                       style: TextStyle(fontSize: 14, color: Colors.grey),
                     ),
                   ],
                 ),
-                const SizedBox(height: 10),
-                const Text(
+                SizedBox(height: 10),
+                Text(
                   'Bio: Passionate about cars, fixing, and selling.',
                   style: TextStyle(fontSize: 12, color: Colors.grey),
                 ),
@@ -199,9 +207,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 backgroundColor: const Color(0xFF28435A), // Button color
                 foregroundColor: Colors.white, // Text color (white)
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15), // Rounded corners for all sides
+                  borderRadius: BorderRadius.circular(
+                      15), // Rounded corners for all sides
                 ),
-                fixedSize: Size(screenWidth * 0.35, 40), // Responsive button size
+                fixedSize:
+                    Size(screenWidth * 0.35, 40), // Responsive button size
               ),
               child: const Text("E-Wallet"), // Text inside the button
             ),
@@ -214,7 +224,8 @@ class _MyHomePageState extends State<MyHomePage> {
             right: 0,
             child: Container(
               height: screenHeight * 0.48, // Adjust height based on screen size
-              color: Colors.white, // Bottom container background color (simplified)
+              color: Colors
+                  .white, // Bottom container background color (simplified)
               child: Column(
                 children: [
                   // Row of two buttons side by side (no space in between)
@@ -231,19 +242,24 @@ class _MyHomePageState extends State<MyHomePage> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: isButton1Active
                                 ? const Color(0xFF28435A) // Active color
-                                : Colors.grey.shade200, // Inactive color (light grey)
+                                : Colors.grey
+                                    .shade200, // Inactive color (light grey)
                             foregroundColor: isButton1Active
                                 ? Colors.white
                                 : Colors.black, // Text color based on state
-                            shape: RoundedRectangleBorder(
+                            shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(15), // Rounded top-left corner
-                                bottomLeft: Radius.circular(15), // Rounded bottom-left corner
+                                topLeft: Radius.circular(
+                                    15), // Rounded top-left corner
+                                bottomLeft: Radius.circular(
+                                    15), // Rounded bottom-left corner
                               ),
                             ),
-                            fixedSize: Size(screenWidth * 0.4, 40), // Responsive button size
+                            fixedSize: Size(screenWidth * 0.4,
+                                40), // Responsive button size
                           ),
-                          child: const Text("For Sale"), // Text inside the button
+                          child:
+                              const Text("For Sale"), // Text inside the button
                         ),
                         // Second button without any space
                         ElevatedButton(
@@ -253,19 +269,24 @@ class _MyHomePageState extends State<MyHomePage> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: isButton2Active
                                 ? const Color(0xFF28435A) // Active color
-                                : Colors.grey.shade200, // Inactive color (light grey)
+                                : Colors.grey
+                                    .shade200, // Inactive color (light grey)
                             foregroundColor: isButton2Active
                                 ? Colors.white
                                 : Colors.black, // Text color based on state
-                            shape: RoundedRectangleBorder(
+                            shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(15), // Rounded top-right corner
-                                bottomRight: Radius.circular(15), // Rounded bottom-right corner
+                                topRight: Radius.circular(
+                                    15), // Rounded top-right corner
+                                bottomRight: Radius.circular(
+                                    15), // Rounded bottom-right corner
                               ),
                             ),
-                            fixedSize: Size(screenWidth * 0.4, 40), // Responsive button size
+                            fixedSize: Size(screenWidth * 0.4,
+                                40), // Responsive button size
                           ),
-                          child: const Text("For Rent"), // Text inside the button
+                          child:
+                              const Text("For Rent"), // Text inside the button
                         ),
                       ],
                     ),
@@ -280,9 +301,9 @@ class _MyHomePageState extends State<MyHomePage> {
       // Floating Action Button (FAB) added below the body content
       floatingActionButton: FloatingActionButton(
         onPressed: onFabPressed, // Handle FAB press
-        backgroundColor: const Color(0xFF28435A), 
-        foregroundColor: Colors.white,// FAB color
-        child:  Icon(Icons.add_circle_outline), // FAB icon
+        backgroundColor: const Color(0xFF28435A),
+        foregroundColor: Colors.white, // FAB color
+        child: const Icon(Icons.add_circle_outline), // FAB icon
       ),
     );
   }
