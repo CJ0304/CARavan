@@ -28,46 +28,100 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Sign Up"),
-        foregroundColor: Colors.white,
-        backgroundColor: Color(0xFF28435A),
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              "Create Account",
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+      body: Stack(
+        children: [
+          // Gradient Background
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 255, 238, 231),
+                  Color.fromARGB(255, 231, 249, 255)
+                ],
+                end: Alignment.topLeft,
+                begin: Alignment.bottomRight,
+              ),
             ),
-            const SizedBox(height: 20),
-            ProfileImagePicker(
-                pickImage: _pickImage, profileImage: _profileImage),
-            const SizedBox(height: 20),
-            CustomTextField(
-                controller: nameController,
-                label: "Full Name",
-                icon: Icons.person),
-            const SizedBox(height: 20),
-            CustomTextField(
-                controller: emailController, label: "Email", icon: Icons.email),
-            const SizedBox(height: 20),
-            CustomTextField(
-                controller: passwordController,
-                label: "Password",
-                icon: Icons.lock,
-                obscureText: true),
-            const SizedBox(height: 30),
-            const Text("Choose your main service to offer",
-                style: TextStyle(fontSize: 18)),
-            const SizedBox(height: 10),
-            RedirectUser1Button(),
-            const SizedBox(height: 10),
-            RedirectUser2Button(),
-          ],
-        ),
+          ),
+          // Abstract Circles
+          Positioned(
+            top: -100,
+            left: -50,
+            child: CircleAvatar(
+              radius: 150,
+              backgroundColor: Colors.white.withAlpha((0.2 * 255).toInt()),
+            ),
+          ),
+          Positioned(
+            bottom: -120,
+            right: -70,
+            child: CircleAvatar(
+              radius: 180,
+              backgroundColor: Colors.white.withAlpha((0.2 * 255).toInt()),
+            ),
+          ),
+          Positioned(
+            top: 100,
+            right: 50,
+            child: CircleAvatar(
+              radius: 80,
+              backgroundColor: Colors.white.withAlpha((0.2 * 255).toInt()),
+            ),
+          ),
+          // Scrollable Content
+          SingleChildScrollView(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 60,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(Icons.arrow_back_ios_new)),
+                    const Text(
+                      "Create Account",
+                      style:
+                          TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                ProfileImagePicker(
+                    pickImage: _pickImage, profileImage: _profileImage),
+                const SizedBox(height: 20),
+                CustomTextField(
+                    controller: nameController,
+                    label: "Full Name",
+                    icon: Icons.person),
+                const SizedBox(height: 20),
+                CustomTextField(
+                    controller: emailController,
+                    label: "Email",
+                    icon: Icons.email),
+                const SizedBox(height: 20),
+                CustomTextField(
+                    controller: passwordController,
+                    label: "Password",
+                    icon: Icons.lock,
+                    obscureText: true),
+                const SizedBox(height: 30),
+                const Text("Choose your main service to offer",
+                    style: TextStyle(fontSize: 18)),
+                const SizedBox(height: 10),
+                RedirectUser1Button(),
+                const SizedBox(height: 10),
+                RedirectUser2Button(),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -82,7 +136,6 @@ class RedirectUser1Button extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
-          // Handle login logic
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -113,17 +166,31 @@ class RedirectUser2Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) =>
-                const RoleSpecificForm(role: "Car Repair Shop"),
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color(0xFF28435A),
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
           ),
-        );
-      },
-      child: const Text("Car Repair Shop"),
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  const RoleSpecificForm(role: "Car Repair Shop"),
+            ),
+          );
+        },
+        child: const Text(
+          "Car Repair Shop",
+          style: TextStyle(fontSize: 18),
+        ),
+      ),
     );
   }
 }
