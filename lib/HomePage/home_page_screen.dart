@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:user1_bookingrepair/HomePage/Car%20Parts/ar_screen.dart';
 import 'package:user1_bookingrepair/HomePage/Car%20Parts/booking_screen.dart';
 import 'package:user1_bookingrepair/NavBar/custom_nav_bar.dart';
+import 'package:user1_bookingrepair/Profile/user1.dart';
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({super.key});
@@ -62,12 +63,18 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: ClipOval(
-                      child: CircleAvatar(
-                        radius: 30,
-                        child: Image.network(
-                          'https://media.themoviedb.org/t/p/w300_and_h450_bestv2/zqBT16EdgLX9ToPwU6qhuY09QBI.jpg',
-                          fit: BoxFit.fill,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => MyHomePage()));
+                      },
+                      child: ClipOval(
+                        child: CircleAvatar(
+                          radius: 30,
+                          child: Image.network(
+                            'https://media.themoviedb.org/t/p/w300_and_h450_bestv2/zqBT16EdgLX9ToPwU6qhuY09QBI.jpg',
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
                     ),

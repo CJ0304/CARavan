@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:user1_bookingrepair/HomePage/home_page_screen.dart';
 import 'package:user1_bookingrepair/Profile/rent_car_info_screen.dart';
 import 'package:user1_bookingrepair/Profile/sale_car_info_screen.dart';
+import 'package:user1_bookingrepair/login/login_screen.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -112,7 +114,8 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.white, // Settings button icon color
             ),
             onPressed: () {
-              // Handle settings button press here
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => LoginScreen()));
             },
           ),
         ],
@@ -133,7 +136,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-
           // Profile Picture
           Positioned(
             top: screenHeight *
