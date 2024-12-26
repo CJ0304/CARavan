@@ -139,11 +139,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        // Handle login logic
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const HomePageScreen()));
+                        //handle login logic
+                        setState(() {});
+                        if (emailController.text.isEmpty &&
+                            passwordController.text.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Invalid User Account'),
+                            ),
+                          );
+                        } else {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const HomePageScreen()));
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF28435A),

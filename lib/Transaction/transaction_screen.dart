@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:user1_bookingrepair/NavBar/custom_nav_bar.dart';
+import 'package:user1_bookingrepair/Transaction/transaction_details_screen.dart';
 
 class TransactionScreen extends StatefulWidget {
   const TransactionScreen({super.key});
@@ -98,13 +99,12 @@ class _TransactionScreenState extends State<TransactionScreen> {
                   ),
                 ),
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) =>
-                  //         TransactionDetailsScreen(transaction: transaction),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TransactionDetailsScreen(),
+                    ),
+                  );
                 },
               ),
             );

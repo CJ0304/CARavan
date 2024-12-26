@@ -4,6 +4,8 @@ import 'package:user1_bookingrepair/Profile/rent_car_info_screen.dart';
 import 'package:user1_bookingrepair/Profile/sale_car_info_screen.dart';
 import 'package:user1_bookingrepair/login/login_screen.dart';
 
+import '../Ewallet/e_wallet.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -203,7 +205,8 @@ class _MyHomePageState extends State<MyHomePage> {
             right: 30,
             child: ElevatedButton(
               onPressed: () {
-                // Handle button press
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => EWalletScreen()));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF28435A), // Button color
