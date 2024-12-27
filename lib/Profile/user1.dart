@@ -97,11 +97,70 @@ class _MyHomePageState extends State<MyHomePage> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      endDrawer: SafeArea(
+        child: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: const Color(0xFF28435A),
+                ),
+                child: Image.asset('assets/images/LogoType.png'),
+              ),
+              Card(
+                child: ListTile(
+                  title: Text('Profile'),
+                  onTap: () {
+                    // Handle end drawer item tap
+                  },
+                ),
+              ),
+              Card(
+                child: ListTile(
+                  title: Text('Settings'),
+                  onTap: () {
+                    // Handle end drawer item tap
+                  },
+                ),
+              ),
+              Card(
+                child: ListTile(
+                  title: Text('Logout'),
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (_) => AlertDialog(
+                              title: Text('Are you sure you want to logout'),
+                              actions: [
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (_) => LoginScreen()));
+                                    },
+                                    child: Text('Yes')),
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text('No')),
+                              ],
+                            ));
+                    // Handle end drawer item tap
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: const Color(0xFF28435A), // AppBar color
         leading: IconButton(
           icon: const Icon(
-            Icons.arrow_back,
+            Icons.arrow_back_ios_new,
             color: Colors.white, // Back button icon color
           ),
           onPressed: () {
@@ -109,15 +168,15 @@ class _MyHomePageState extends State<MyHomePage> {
           },
         ),
         actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.settings,
-              color: Colors.white, // Settings button icon color
+          Builder(
+            builder: (context) => IconButton(
+              icon: Icon(
+                Icons.settings,
+                color: Colors.white,
+              ),
+              onPressed: () => Scaffold.of(context).openEndDrawer(),
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             ),
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => LoginScreen()));
-            },
           ),
         ],
       ),
