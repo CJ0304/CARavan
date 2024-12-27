@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../login/login_screen.dart';
+import '../DbHelper/database_helper.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -16,6 +16,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   XFile? _profileImage;
+  String? userRole; // To hold the selected role
 
   Future<void> _pickImage() async {
     final ImagePicker picker = ImagePicker();
@@ -23,6 +24,43 @@ class _SignUpScreenState extends State<SignUpScreen> {
     setState(() {
       _profileImage = image;
     });
+  }
+
+  // Handle the registration logic
+  Future<void> _registerUser() async {
+    if (nameController.text.isEmpty ||
+        emailController.text.isEmpty ||
+        passwordController.text.isEmpty ||
+        userRole == null) {
+      // Show error if fields are empty or role is not selected
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Please fill all fields and select a role"),
+      ));
+      return;
+    }
+
+    final user = {
+      'name': nameController.text,
+      'email': emailController.text,
+      'password': passwordController.text,
+      'user_type': userRole == "Buy/Sell/Rent" ? 1 : 2,
+      'additional_info': '', // You can add additional fields if required
+    };
+
+    // Register the user in the database
+    final result = await DatabaseHelper.instance.registerUser(user);
+    if (result != -1) {
+      // If registration is successful, navigate to login screen
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      );
+    } else {
+      // If registration fails, show an error message
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Registration failed. Please try again."),
+      ));
+    }
   }
 
   @override
@@ -74,7 +112,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 Row(
@@ -84,7 +122,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        icon: Icon(Icons.arrow_back_ios_new)),
+                        icon: const Icon(Icons.arrow_back_ios_new)),
                     const Text(
                       "Create Account",
                       style:
@@ -115,81 +153,52 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const Text("Choose your main service to offer",
                     style: TextStyle(fontSize: 18)),
                 const SizedBox(height: 10),
-                RedirectUser1Button(),
-                const SizedBox(height: 10),
-                RedirectUser2Button(),
+                // Role selection using radio buttons
+                Row(
+                  children: [
+                    Radio<String>(
+                      value: "Buy/Sell/Rent",
+                      groupValue: userRole,
+                      onChanged: (value) {
+                        setState(() {
+                          userRole = value;
+                        });
+                      },
+                    ),
+                    const Text("Buy/Sell/Rent"),
+                    const SizedBox(width: 20),
+                    Radio<String>(
+                      value: "Car Repair Shop",
+                      groupValue: userRole,
+                      onChanged: (value) {
+                        setState(() {
+                          userRole = value;
+                        });
+                      },
+                    ),
+                    const Text("Car Repair Shop"),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: _registerUser, // Call _registerUser when pressed
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF28435A),
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: const Text(
+                    "Register",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
               ],
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class RedirectUser1Button extends StatelessWidget {
-  const RedirectUser1Button({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) =>
-                  const RoleSpecificForm(role: "Buy/Sell/Rent"),
-            ),
-          );
-        },
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF28435A),
-          foregroundColor: Colors.white,
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
-        child: const Text(
-          "Buy/Sell/Rent",
-          style: TextStyle(fontSize: 18),
-        ),
-      ),
-    );
-  }
-}
-
-class RedirectUser2Button extends StatelessWidget {
-  const RedirectUser2Button({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF28435A),
-          foregroundColor: Colors.white,
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) =>
-                  const RoleSpecificForm(role: "Car Repair Shop"),
-            ),
-          );
-        },
-        child: const Text(
-          "Car Repair Shop",
-          style: TextStyle(fontSize: 18),
-        ),
       ),
     );
   }
@@ -244,94 +253,6 @@ class CustomTextField extends StatelessWidget {
         labelText: label,
         border: const OutlineInputBorder(),
         prefixIcon: Icon(icon),
-      ),
-    );
-  }
-}
-
-class RoleSpecificForm extends StatefulWidget {
-  final String role;
-
-  const RoleSpecificForm({super.key, required this.role});
-
-  @override
-  _RoleSpecificFormState createState() => _RoleSpecificFormState();
-}
-
-class _RoleSpecificFormState extends State<RoleSpecificForm> {
-  late Map<String, bool> options;
-
-  @override
-  void initState() {
-    super.initState();
-    if (widget.role == "Buy/Sell/Rent") {
-      options = {
-        "Buy a Car": false,
-        "Sell a Car": false,
-        "Rent a Car": false,
-        "Browse Options": false,
-      };
-    } else if (widget.role == "Car Repair Shop") {
-      options = {
-        "Engine Repair": false,
-        "Body Works": false,
-        "Car Accessories": false,
-        "Maintenance and Servicing": false,
-      };
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Additional Details")),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Role-Specific Details for ${widget.role}",
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              widget.role == " Buy/Sell/Rent "
-                  ? "I am here mainly to..."
-                  : "My services offerings icludes...",
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            ...options.keys.map((String key) {
-              return CheckboxListTile(
-                title: Text(key),
-                value: options[key],
-                onChanged: (bool? value) {
-                  setState(() {
-                    options[key] = value!;
-                  });
-                },
-              );
-            }),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                // final selectedOptions = options.entries
-                //     .where((entry) => entry.value)
-                //     .map((entry) => entry.key)
-                //     .toList();
-                // ScaffoldMessenger.of(context).showSnackBar(
-                //   SnackBar(
-                //     content: Text("Selected: ${selectedOptions.join(", ")}"),
-                //   ),
-                // );
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => const LoginScreen()));
-              },
-              child: const Text("Submit"),
-            ),
-          ],
-        ),
       ),
     );
   }

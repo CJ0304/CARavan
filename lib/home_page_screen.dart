@@ -76,7 +76,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.black.withAlpha((0.7 * 255).toInt()),
                         width: 2,
                       ),
                     ),
@@ -92,7 +92,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.black.withAlpha((0.7 * 255).toInt()),
                         width: 2,
                       ),
                     ),

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:user1_bookingrepair/HomePage/home_page_screen.dart';
-
-import '../register/sign_up_screen.dart';
 
 class ForgotPass extends StatefulWidget {
   const ForgotPass({super.key});

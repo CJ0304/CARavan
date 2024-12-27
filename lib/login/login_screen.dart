@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:user1_bookingrepair/HomePage/home_page_screen.dart';
-import 'package:user1_bookingrepair/login/forgot_pass.dart';
-
 import '../register/sign_up_screen.dart';
+import 'forgot_pass.dart';
+import '../DbHelper/database_helper.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -13,8 +13,46 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
-  bool isChecked = false;
   final TextEditingController passwordController = TextEditingController();
+  bool isChecked = false;
+
+  Future<void> _login() async {
+    final String email = emailController.text.trim();
+    final String password = passwordController.text;
+
+    if (email.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please fill in both fields.'),
+        ),
+      );
+      return;
+    }
+
+    final DatabaseHelper dbHelper = DatabaseHelper.instance;
+    final user = await dbHelper.loginUser(email, password);
+
+    if (user != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Welcome, ${user['name']}!'),
+        ),
+      );
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (_) => const HomePageScreen(),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Invalid email or password.'),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +159,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       TextButton(
                         onPressed: () {
-                          // Handle forgot password
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (_) => const ForgotPass()));
                         },
@@ -138,23 +175,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {
-                        //handle login logic
-                        setState(() {});
-                        if (emailController.text.isEmpty &&
-                            passwordController.text.isEmpty) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Invalid User Account'),
-                            ),
-                          );
-                        } else {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => const HomePageScreen()));
-                        }
-                      },
+                      onPressed: _login,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF28435A),
                         foregroundColor: Colors.white,
@@ -179,7 +200,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (_) => SignUpScreen()));
+                                  builder: (_) => const SignUpScreen()));
                         },
                         child: const Text(
                           "Sign Up",
