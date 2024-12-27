@@ -5,7 +5,7 @@ import 'package:user1_bookingrepair/NavBar/custom_nav_bar.dart';
 import 'package:user1_bookingrepair/Repair%20Shop/shoplist_screen.dart';
 
 class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key? key}) : super(key: key);
+  const HomePageWidget({super.key});
 
   @override
   State<HomePageWidget> createState() => _HomePageWidgetState();
@@ -76,7 +76,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.black.withAlpha((0.7 * 255).toInt()),
                         width: 2,
                       ),
                     ),
@@ -92,7 +92,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.black.withAlpha((0.7 * 255).toInt()),
                         width: 2,
                       ),
                     ),
@@ -105,7 +105,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     'https://media.themoviedb.org/t/p/w300_and_h450_bestv2/zqBT16EdgLX9ToPwU6qhuY09QBI.jpg',
                   ),
                 ),
-                
+
                 // Navigate Button
                 Align(
                   alignment: const AlignmentDirectional(0.01, 0.79),
@@ -142,7 +142,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           ),
         ),
         bottomNavigationBar: CustomNavBar(
-         
           activeIndex: _currentIndex,
           onTap: (v) {
             setState(() {

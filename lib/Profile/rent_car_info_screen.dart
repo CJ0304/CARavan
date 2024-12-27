@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:user1_bookingrepair/Profile/rent_car_info_next_screen.dart';
 
 class RentCarScreen extends StatefulWidget {
-  const RentCarScreen({Key? key}) : super(key: key);
+  const RentCarScreen({super.key});
 
   @override
   _RentCarScreenState createState() => _RentCarScreenState();
@@ -15,7 +14,7 @@ class _RentCarScreenState extends State<RentCarScreen> {
   final _carYearController = TextEditingController();
   final _carMileageController = TextEditingController();
   final _carPriceController = TextEditingController();
-  String _imagePath = ''; // For image path, initially empty
+  final String _imagePath = ''; // For image path, initially empty
 
   // Function to navigate to the next screen
   void _navigateToNextScreen() {
@@ -90,7 +89,7 @@ class _RentCarScreenState extends State<RentCarScreen> {
               // Car Make TextField
               TextField(
                 controller: _carMakeController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Car Make',
                   border: OutlineInputBorder(),
                 ),
@@ -100,7 +99,7 @@ class _RentCarScreenState extends State<RentCarScreen> {
               // Car Model TextField
               TextField(
                 controller: _carModelController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Car Model',
                   border: OutlineInputBorder(),
                 ),
@@ -110,7 +109,7 @@ class _RentCarScreenState extends State<RentCarScreen> {
               // Car Year TextField
               TextField(
                 controller: _carYearController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Car Year',
                   border: OutlineInputBorder(),
                 ),
@@ -120,7 +119,7 @@ class _RentCarScreenState extends State<RentCarScreen> {
               // Car Mileage TextField
               TextField(
                 controller: _carMileageController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Car Mileage (in miles)',
                   border: OutlineInputBorder(),
                 ),
@@ -130,7 +129,7 @@ class _RentCarScreenState extends State<RentCarScreen> {
               // Car Price TextField
               TextField(
                 controller: _carPriceController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Car Price',
                   border: OutlineInputBorder(),
                 ),

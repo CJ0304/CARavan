@@ -16,6 +16,7 @@ class BookingDetailsScreen extends StatelessWidget {
   final String issuePrice;
 
   const BookingDetailsScreen({
+    super.key,
     required this.carModel,
     required this.licensePlate,
     required this.issueDescription,
@@ -47,24 +48,32 @@ class BookingDetailsScreen extends StatelessWidget {
               // Car Details Header
               Text(
                 'Car Details',
-                style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8.0),
               // Car Details Card
               Card(
                 elevation: 5.0,
                 margin: const EdgeInsets.symmetric(vertical: 8.0),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
                       ListTile(
-                        title: Text(carModel, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        title: Text(carModel,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('Car Model'),
                       ),
                       ListTile(
-                        title: Text(licensePlate, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        title: Text(licensePlate,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('License Plate'),
                       ),
                     ],
@@ -74,24 +83,32 @@ class BookingDetailsScreen extends StatelessWidget {
               // Issue Description & Price Header
               Text(
                 'Issue Details',
-                style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8.0),
               // Issue Description & Price Card
               Card(
                 elevation: 5.0,
                 margin: const EdgeInsets.symmetric(vertical: 8.0),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
                       ListTile(
-                        title: Text(issueDescription, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        title: Text(issueDescription,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('Issue Description'),
                       ),
                       ListTile(
-                        title: Text(issuePrice, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        title: Text(issuePrice,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('Service Price'),
                       ),
                     ],
@@ -101,40 +118,56 @@ class BookingDetailsScreen extends StatelessWidget {
               // Service Location Header
               Text(
                 'Service Location',
-                style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8.0),
               // Service Location Card
               Card(
                 elevation: 5.0,
                 margin: const EdgeInsets.symmetric(vertical: 8.0),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
                       ListTile(
-                        title: Text(street, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        title: Text(street,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('Street Address'),
                       ),
                       ListTile(
-                        title: Text(city, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        title: Text(city,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('City'),
                       ),
                       ListTile(
-                        title: Text(state, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        title: Text(state,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('State/Province'),
                       ),
                       ListTile(
-                        title: Text(zipCode, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        title: Text(zipCode,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('Zip Code'),
                       ),
                       ListTile(
-                        title: Text(country, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        title: Text(country,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('Country'),
                       ),
                       ListTile(
-                        title: Text(landmark.isEmpty ? 'N/A' : landmark, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        title: Text(landmark.isEmpty ? 'N/A' : landmark,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('Landmark'),
                       ),
                     ],
@@ -144,24 +177,32 @@ class BookingDetailsScreen extends StatelessWidget {
               // Service Provider Header
               Text(
                 'Service Provider',
-                style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8.0),
               // Service Provider Card
               Card(
                 elevation: 5.0,
                 margin: const EdgeInsets.symmetric(vertical: 8.0),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
                       ListTile(
-                        title: Text(serviceProviderName, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        title: Text(serviceProviderName,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('Provider Name'),
                       ),
                       ListTile(
-                        title: Text(serviceProviderProfile, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        title: Text(serviceProviderProfile,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('Profile'),
                       ),
                     ],
@@ -171,22 +212,30 @@ class BookingDetailsScreen extends StatelessWidget {
               // Urgency Header
               Text(
                 'Urgency Level',
-                style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8.0),
               // Urgency Card
               Card(
                 elevation: 5.0,
                 margin: const EdgeInsets.symmetric(vertical: 8.0),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
                       ListTile(
-                        title: Text(isUrgent ? 'Urgent' : 'Normal', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        title: Text(isUrgent ? 'Urgent' : 'Normal',
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('Urgency'),
-                        tileColor: isUrgent ? Colors.redAccent.withOpacity(0.1) : Colors.transparent,
+                        tileColor: isUrgent
+                            ? Colors.redAccent.withOpacity(0.1)
+                            : Colors.transparent,
                       ),
                     ],
                   ),
@@ -198,13 +247,14 @@ class BookingDetailsScreen extends StatelessWidget {
                   // Add your action for final confirmation or navigation.
                   Navigator.pop(context);
                 },
-                child: const Text('Confirm Booking'),
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 50),
+                  minimumSize: const Size(double.infinity, 50),
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   backgroundColor: Colors.green,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
                 ),
+                child: const Text('Confirm Booking'),
               ),
             ],
           ),

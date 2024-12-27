@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CarPapersUploadScreen extends StatefulWidget {
-  const CarPapersUploadScreen({Key? key}) : super(key: key);
+  const CarPapersUploadScreen({super.key});
 
   @override
   _CarPapersUploadScreenState createState() => _CarPapersUploadScreenState();
@@ -54,7 +54,8 @@ class _CarPapersUploadScreenState extends State<CarPapersUploadScreen> {
             ElevatedButton(
               onPressed: () {
                 // Placeholder for next button press action
-                print(isUploaded ? "Navigating to List" : "Upload Papers First");
+                print(
+                    isUploaded ? "Navigating to List" : "Upload Papers First");
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF28435A),
@@ -62,9 +63,12 @@ class _CarPapersUploadScreenState extends State<CarPapersUploadScreen> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 25),
               ),
-              child: Text(isUploaded ? "To List" : "Next"), // Button text changes based on isUploaded
+              child: Text(isUploaded
+                  ? "To List"
+                  : "Next"), // Button text changes based on isUploaded
             ),
           ],
         ),

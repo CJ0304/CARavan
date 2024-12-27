@@ -277,7 +277,8 @@ class _CarRepairAppointmentScreenState
                         ? const SizedBox.shrink()
                         : Text(
                             'Estimated Price: ₱${issues.firstWhere((issue) => issue['name'] == _selectedIssue)['price']}',
-                            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            style: const TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                   ),
                 ),
@@ -312,7 +313,7 @@ class _CarRepairAppointmentScreenState
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF28435A),
+                        backgroundColor: const Color(0xFF28435A),
                         foregroundColor: Colors.white,
                       ),
                       onPressed: () {

@@ -37,16 +37,16 @@ class _ShopListState extends State<ShopList> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Mechanic User',
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Text(
+                          const Text(
                             'Urdaneta City',
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -54,11 +54,16 @@ class _ShopListState extends State<ShopList> {
                           const SizedBox(height: 8),
                           Row(
                             children: [
-                              const Icon(Icons.star, color: Colors.amber, size: 20),
-                              const Icon(Icons.star, color: Colors.amber, size: 20),
-                              const Icon(Icons.star, color: Colors.amber, size: 20),
-                              const Icon(Icons.star_half, color: Colors.amber, size: 20),
-                              const Icon(Icons.star_border, color: Colors.amber, size: 20),
+                              const Icon(Icons.star,
+                                  color: Colors.amber, size: 20),
+                              const Icon(Icons.star,
+                                  color: Colors.amber, size: 20),
+                              const Icon(Icons.star,
+                                  color: Colors.amber, size: 20),
+                              const Icon(Icons.star_half,
+                                  color: Colors.amber, size: 20),
+                              const Icon(Icons.star_border,
+                                  color: Colors.amber, size: 20),
                               const SizedBox(width: 8),
                               Text(
                                 '(4.5)',
@@ -73,29 +78,35 @@ class _ShopListState extends State<ShopList> {
                               children: [
                                 ElevatedButton(
                                   onPressed: () {
-                                    Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (BuildContext context){
-                                          return ShopDetails();
-                                      }));
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) {
+                                      return const ShopDetails();
+                                    }));
                                   },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xFF28435A),
                                   ),
-                                  child: const Text('View Shop', 
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
+                                  child: const Text(
+                                    'View Shop',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: (){
-                                     Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (BuildContext context){
-                                          return MessageConvoScreen();
-                                      }));
-                                  }, 
-                                  icon: Icon(Icons.message, size: 30,),
-                                  )
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) {
+                                      return const MessageConvoScreen();
+                                    }));
+                                  },
+                                  icon: const Icon(
+                                    Icons.message,
+                                    size: 30,
+                                  ),
+                                )
                               ],
                             ),
                           ),

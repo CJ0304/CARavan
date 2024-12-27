@@ -215,7 +215,8 @@ class _CarRepairBookingScreenState extends State<CarRepairBookingScreen> {
                         ? const SizedBox.shrink()
                         : Text(
                             'Estimated Price: ₱${issues.firstWhere((issue) => issue['name'] == _selectedIssue)['price']}',
-                            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            style: const TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                   ),
                 ),
@@ -240,10 +241,10 @@ class _CarRepairBookingScreenState extends State<CarRepairBookingScreen> {
                                 zipCode: _zipCodeController.text,
                                 country: _countryController.text,
                                 landmark: _landmarkController.text,
-                                serviceProviderName: '', 
-                                serviceProviderProfile: '', 
-                                isUrgent: true, 
-                                issuePrice: '', 
+                                serviceProviderName: '',
+                                serviceProviderProfile: '',
+                                isUrgent: true,
+                                issuePrice: '',
                               ),
                             ),
                           );
@@ -253,7 +254,7 @@ class _CarRepairBookingScreenState extends State<CarRepairBookingScreen> {
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor:Color(0xFF28435A),
+                        backgroundColor: const Color(0xFF28435A),
                         foregroundColor: Colors.white,
                       ),
                       onPressed: () {

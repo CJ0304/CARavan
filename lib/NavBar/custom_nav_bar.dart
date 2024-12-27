@@ -12,10 +12,10 @@ class CustomNavBar extends StatelessWidget {
   final Function(int) onTap;
 
   const CustomNavBar({
-    Key? key,
+    super.key,
     required this.activeIndex,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +25,10 @@ class CustomNavBar extends StatelessWidget {
     // Dynamically calculate size based on screen dimensions
     final navBarHeight = screenHeight * 0.08; // 8% of screen height
     final circleNavWidth = screenWidth * 0.15; // 15% of screen width
-    final padding = screenWidth * 0.01; // Padding as a percentage of screen width
-    final cornerRadius = screenWidth * 0.03; // Radius as a percentage of screen width
+    final padding =
+        screenWidth * 0.01; // Padding as a percentage of screen width
+    final cornerRadius =
+        screenWidth * 0.03; // Radius as a percentage of screen width
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
@@ -81,14 +83,16 @@ class CustomNavBar extends StatelessWidget {
               // Navigate to Repair Shop screen
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const RepairShopScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const RepairShopScreen()),
               );
               break;
             case 3:
               // Navigate to Transaction screen
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const TransactionScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const TransactionScreen()),
               );
               break;
           }

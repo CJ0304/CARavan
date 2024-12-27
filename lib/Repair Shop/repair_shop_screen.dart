@@ -5,7 +5,7 @@ import 'package:user1_bookingrepair/NavBar/custom_nav_bar.dart';
 import 'package:user1_bookingrepair/Repair%20Shop/shoplist_screen.dart';
 
 class RepairShopScreen extends StatefulWidget {
-  const RepairShopScreen({Key? key}) : super(key: key);
+  const RepairShopScreen({super.key});
 
   @override
   State<RepairShopScreen> createState() => _HomePageWidgetState();
@@ -101,7 +101,7 @@ class _HomePageWidgetState extends State<RepairShopScreen> {
                 // Avatar
                 Material(
                   elevation: 5, // Adjust the elevation value to your preference
-                  shape: CircleBorder(),
+                  shape: const CircleBorder(),
                   child: CircleAvatar(
                     radius: screenWidth * 0.2, // 20% of screen width
                     backgroundImage: const NetworkImage(
@@ -110,7 +110,6 @@ class _HomePageWidgetState extends State<RepairShopScreen> {
                   ),
                 ),
 
-                
                 // Navigate Button
                 Align(
                   alignment: const AlignmentDirectional(0.01, 0.79),
@@ -147,7 +146,6 @@ class _HomePageWidgetState extends State<RepairShopScreen> {
           ),
         ),
         bottomNavigationBar: CustomNavBar(
-         
           activeIndex: _currentIndex,
           onTap: (v) {
             setState(() {
