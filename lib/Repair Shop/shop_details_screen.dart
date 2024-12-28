@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:user1_bookingrepair/Repair%20Shop/booking/booknow_screen.dart';
-import 'package:user1_bookingrepair/Repair%20Shop/booking/set_appointment_screen.dart';
+import 'package:user1_bookingrepair/Repair%20Shop/set_appointment/set_appointment_screen.dart';
 import 'package:user1_bookingrepair/Message/message_convo_screen.dart';
+import 'package:user1_bookingrepair/Repair%20Shop/booking/visit_choices.dart';
+import 'package:user1_bookingrepair/Repair%20Shop/repairshop_first_screen.dart';
 
 class ShopDetails extends StatelessWidget {
   const ShopDetails({super.key});
@@ -17,6 +19,15 @@ class ShopDetails extends StatelessWidget {
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         foregroundColor: Colors.black,
+        leading: IconButton(
+          onPressed: (){
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const RepairHome(), // Specify the screen you want to navigate to
+              ),
+            );
+          }, 
+          icon: Icon(Icons.arrow_back)),
         actions: [
           IconButton(
             onPressed: () {},
@@ -168,6 +179,7 @@ class ShopDetails extends StatelessWidget {
                                       screenHeight * 0.015, // Reduced padding
                                 ),
                                 backgroundColor: Colors.white,
+                                foregroundColor: Colors.black
                               ),
                               child: const Text(
                                 'Book Now',
@@ -179,7 +191,7 @@ class ShopDetails extends StatelessWidget {
                               onPressed: () {
                                 Navigator.of(context).push(MaterialPageRoute(
                                   builder: (BuildContext context) {
-                                    return const CarRepairAppointmentScreen(); // Ensure the widget is properly instantiated
+                                    return  CarRepairAppointmentScreen(); // Ensure the widget is properly instantiated
                                   },
                                 ));
                               },
@@ -191,6 +203,7 @@ class ShopDetails extends StatelessWidget {
                                       screenHeight * 0.015, // Reduced padding
                                 ),
                                 backgroundColor: Colors.white,
+                                foregroundColor: Colors.black
                               ),
                               child: const Text(
                                 'Set Appointment',

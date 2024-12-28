@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:user1_bookingrepair/Message/message_convo_screen.dart';
+import 'package:user1_bookingrepair/Repair%20Shop/repairshop_first_screen.dart';
 import 'package:user1_bookingrepair/Repair%20Shop/shop_details_screen.dart';
 
 class ShopList extends StatefulWidget {
@@ -18,6 +19,15 @@ class _ShopListState extends State<ShopList> {
         centerTitle: true,
         backgroundColor: const Color(0xFF28435A),
         foregroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: (){
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const RepairHome(), // Specify the screen you want to navigate to
+              ),
+            );
+          }, 
+          icon: Icon(Icons.arrow_back)),
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(8.0),

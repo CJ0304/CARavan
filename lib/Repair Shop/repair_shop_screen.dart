@@ -1,49 +1,27 @@
-// home_page_widget.dart
-
 import 'package:flutter/material.dart';
-import 'package:user1_bookingrepair/NavBar/custom_nav_bar.dart';
-import 'package:user1_bookingrepair/Repair%20Shop/shoplist_screen.dart';
+import 'package:user1_bookingrepair/components/animated_circles.dart';
 
 class RepairShopScreen extends StatefulWidget {
   const RepairShopScreen({super.key});
 
   @override
-  State<RepairShopScreen> createState() => _HomePageWidgetState();
+  State<RepairShopScreen> createState() => _RepairShopScreenState();
 }
 
-class _HomePageWidgetState extends State<RepairShopScreen> {
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-  int _currentIndex = 2; // Default tab index
-  double _scale = 1.0; // Initial scale for circles
-  bool _zoomIn = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _startZoomEffect();
-  }
-
-  void _startZoomEffect() {
-    Future.delayed(Duration.zero, () {
-      setState(() {
-        _scale = _zoomIn ? 1.2 : 1.0;
-        _zoomIn = !_zoomIn;
-      });
-      Future.delayed(const Duration(seconds: 1), _startZoomEffect);
-    });
+class _RepairShopScreenState extends State<RepairShopScreen> {
+  // Async function to clean up resources when back button is pressed
+  Future<bool> _onBackPressed() async {
+    // Return true to allow default back navigation
+    return true;
   }
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+    return WillPopScope(
+      onWillPop: _onBackPressed,  // Intercept back press and handle cleanup
       child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: Colors.white,
         appBar: AppBar(
+<<<<<<< HEAD
           backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
           title: const Align(
@@ -152,7 +130,11 @@ class _HomePageWidgetState extends State<RepairShopScreen> {
               _currentIndex = v;
             });
           },
+=======
+          title: const Text('Shops Nearby'),
+>>>>>>> 3f90049 (upload)
         ),
+        body: const AnimatedCircles(),
       ),
     );
   }
