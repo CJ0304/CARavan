@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:user1_bookingrepair/Repair%20Shop/Payment/booking_payment_screen.dart';
+import 'package:user1_bookingrepair/data/shop.dart';
 
 class BookingDetailsScreen extends StatelessWidget {
   final String carModel;
   final String licensePlate;
   final String issueDescription;
   final String street;
+  final String barangay;
   final String city;
-  final String state;
+  final String province;
   final String zipCode;
   final String country;
   final String landmark;
@@ -14,15 +17,22 @@ class BookingDetailsScreen extends StatelessWidget {
   final String serviceProviderProfile;
   final bool isUrgent;
   final String issuePrice;
+  final bool isPaid;
+  late RepairShop selectedShop = repairShops[0];
 
+<<<<<<< HEAD
   const BookingDetailsScreen({
     super.key,
+=======
+   BookingDetailsScreen({
+>>>>>>> 3f90049 (upload)
     required this.carModel,
     required this.licensePlate,
     required this.issueDescription,
     required this.street,
+    required this.barangay,
     required this.city,
-    required this.state,
+    required this.province,
     required this.zipCode,
     required this.country,
     required this.landmark,
@@ -30,6 +40,7 @@ class BookingDetailsScreen extends StatelessWidget {
     required this.serviceProviderProfile,
     required this.isUrgent,
     required this.issuePrice,
+    required this.isPaid,
   });
 
   @override
@@ -37,8 +48,10 @@ class BookingDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Booking Summary'),
-        backgroundColor: Colors.green,
+        backgroundColor: const Color(0xFF28435A),
+        foregroundColor: Colors.white,
       ),
+      backgroundColor: const Color.fromARGB(255, 59, 84, 105),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -48,10 +61,18 @@ class BookingDetailsScreen extends StatelessWidget {
               // Car Details Header
               Text(
                 'Car Details',
+<<<<<<< HEAD
                 style: Theme.of(context)
                     .textTheme
                     .headline6
                     ?.copyWith(fontWeight: FontWeight.bold),
+=======
+                style: TextStyle(
+                  fontSize: 20, 
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white, 
+                ),
+>>>>>>> 3f90049 (upload)
               ),
               const SizedBox(height: 8.0),
               // Car Details Card
@@ -83,10 +104,18 @@ class BookingDetailsScreen extends StatelessWidget {
               // Issue Description & Price Header
               Text(
                 'Issue Details',
+<<<<<<< HEAD
                 style: Theme.of(context)
                     .textTheme
                     .headline6
                     ?.copyWith(fontWeight: FontWeight.bold),
+=======
+                style: TextStyle(
+                  fontSize: 20, 
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white, 
+                ),
+>>>>>>> 3f90049 (upload)
               ),
               const SizedBox(height: 8.0),
               // Issue Description & Price Card
@@ -118,10 +147,18 @@ class BookingDetailsScreen extends StatelessWidget {
               // Service Location Header
               Text(
                 'Service Location',
+<<<<<<< HEAD
                 style: Theme.of(context)
                     .textTheme
                     .headline6
                     ?.copyWith(fontWeight: FontWeight.bold),
+=======
+                style: TextStyle(
+                  fontSize: 20, 
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white, 
+                ),
+>>>>>>> 3f90049 (upload)
               ),
               const SizedBox(height: 8.0),
               // Service Location Card
@@ -141,6 +178,7 @@ class BookingDetailsScreen extends StatelessWidget {
                         subtitle: const Text('Street Address'),
                       ),
                       ListTile(
+<<<<<<< HEAD
                         title: Text(city,
                             style: const TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w500)),
@@ -151,6 +189,18 @@ class BookingDetailsScreen extends StatelessWidget {
                             style: const TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('State/Province'),
+=======
+                        title: Text(barangay, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        subtitle: const Text('Barangay'),
+                      ),
+                      ListTile(
+                        title: Text(city, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        subtitle: const Text('City'),
+                      ),
+                      ListTile(
+                        title: Text(province, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        subtitle: const Text('Province'),
+>>>>>>> 3f90049 (upload)
                       ),
                       ListTile(
                         title: Text(zipCode,
@@ -177,10 +227,18 @@ class BookingDetailsScreen extends StatelessWidget {
               // Service Provider Header
               Text(
                 'Service Provider',
+<<<<<<< HEAD
                 style: Theme.of(context)
                     .textTheme
                     .headline6
                     ?.copyWith(fontWeight: FontWeight.bold),
+=======
+                style: TextStyle(
+                  fontSize: 20, 
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white, 
+                ),
+>>>>>>> 3f90049 (upload)
               ),
               const SizedBox(height: 8.0),
               // Service Provider Card
@@ -194,6 +252,7 @@ class BookingDetailsScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       ListTile(
+<<<<<<< HEAD
                         title: Text(serviceProviderName,
                             style: const TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w500)),
@@ -204,6 +263,14 @@ class BookingDetailsScreen extends StatelessWidget {
                             style: const TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w500)),
                         subtitle: const Text('Profile'),
+=======
+                        title: Text(selectedShop.name, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        subtitle: const Text('Provider Name'),
+                      ),
+                      ListTile(
+                        title: Text(selectedShop.number, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                        subtitle: const Text('Number'),
+>>>>>>> 3f90049 (upload)
                       ),
                     ],
                   ),
@@ -212,10 +279,18 @@ class BookingDetailsScreen extends StatelessWidget {
               // Urgency Header
               Text(
                 'Urgency Level',
+<<<<<<< HEAD
                 style: Theme.of(context)
                     .textTheme
                     .headline6
                     ?.copyWith(fontWeight: FontWeight.bold),
+=======
+                style: TextStyle(
+                  fontSize: 20, 
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white, 
+                ),
+>>>>>>> 3f90049 (upload)
               ),
               const SizedBox(height: 8.0),
               // Urgency Card
@@ -244,15 +319,29 @@ class BookingDetailsScreen extends StatelessWidget {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Add your action for final confirmation or navigation.
-                  Navigator.pop(context);
+                  // Navigate to the payment screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PaymentScreen(issuePrice: issuePrice, ),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
+<<<<<<< HEAD
                   minimumSize: const Size(double.infinity, 50),
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   backgroundColor: Colors.green,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
+=======
+                  elevation: 6,
+                  minimumSize: Size(double.infinity, 50),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  backgroundColor: const Color(0xFF28435A),
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+>>>>>>> 3f90049 (upload)
                 ),
                 child: const Text('Confirm Booking'),
               ),
@@ -262,8 +351,4 @@ class BookingDetailsScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-extension on TextTheme {
-  get headline6 => null;
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:circle_nav_bar/circle_nav_bar.dart';
 import 'package:user1_bookingrepair/HomePage/home_page_screen.dart';
 import 'package:user1_bookingrepair/Message/Message_screen.dart';
+import 'package:user1_bookingrepair/Repair%20Shop/repairshop_first_screen.dart';
 import 'package:user1_bookingrepair/Transaction/transaction_screen.dart';
 import 'package:user1_bookingrepair/Repair%20Shop/repair_shop_screen.dart';
 
@@ -21,6 +22,7 @@ class CustomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+
 
     // Dynamically calculate size based on screen dimensions
     final navBarHeight = screenHeight * 0.08; // 8% of screen height
@@ -83,16 +85,29 @@ class CustomNavBar extends StatelessWidget {
               // Navigate to Repair Shop screen
               Navigator.push(
                 context,
+<<<<<<< HEAD
                 MaterialPageRoute(
                     builder: (context) => const RepairShopScreen()),
+=======
+                MaterialPageRoute(builder: (context) => const RepairHome()),
+>>>>>>> 3f90049 (upload)
               );
               break;
             case 3:
+
+             final double totalAmount = 0.0;
+              final int bookingId = 0;
+              final bool isTransactionSuccessful = false;
+              final String? issueDescription = '';
               // Navigate to Transaction screen
               Navigator.push(
                 context,
+<<<<<<< HEAD
                 MaterialPageRoute(
                     builder: (context) => const TransactionScreen()),
+=======
+                MaterialPageRoute(builder: (context) => TransactionScreen()),
+>>>>>>> 3f90049 (upload)
               );
               break;
           }
